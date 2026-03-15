@@ -4,7 +4,8 @@
 ## Locked Tech Stack
 - [ ] Python for all AI services and agents
 - [ ] FastAPI-compatible service interfaces for backend integration
-- [ ] PostgreSQL-backed metadata and result persistence via backend APIs
+- [ ] Amazon RDS (PostgreSQL)-backed metadata and result persistence via backend APIs
+- [ ] Amazon S3-sourced documents and transcripts via backend APIs
 
 ---
 
@@ -258,6 +259,7 @@
 - [ ] Define input/output contracts between AI agents and backend API (schemas in `shared/schemas/`)
 - [ ] Implement AI module as a callable service or worker (Celery task, FastAPI background task, or separate microservice)
 - [ ] Expose internal endpoints or task hooks for backend to trigger each agent
+- [ ] Accept S3 object keys and signed access URLs from backend for document retrieval context
 
 ### [ ] 11.2 Storage of Results
 - [ ] Ensure all agent outputs are serialized to JSON and returned to backend for persistence

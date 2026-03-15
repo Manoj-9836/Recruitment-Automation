@@ -7,6 +7,7 @@
 - [ ] Tailwind CSS
 - [ ] React Router
 - [ ] Axios for API calls
+- [ ] Amazon S3 pre-signed URL upload/download flow
 
 ---
 
@@ -114,6 +115,7 @@
 
 ### [ ] 5.1 Candidate Upload
 - [ ] Upload resume in PDF or text format
+- [ ] Upload files to Amazon S3 using backend-provided pre-signed URLs
 - [ ] Show upload progress and success/error states
 - [ ] Trigger automatic parsing flow on upload
 
@@ -135,6 +137,7 @@
 ### [ ] 5.4 Evaluation Report Download
 - [ ] Button to download consolidated candidate evaluation as PDF
 - [ ] Include all tab data in report format
+- [ ] Support secure report and document download via time-limited pre-signed URLs
 
 ---
 
@@ -143,6 +146,7 @@
 ### [ ] 6.1 Transcript Upload
 - [ ] Upload manual transcript (text or document file)
 - [ ] Upload transcript file exported from Microsoft Teams
+- [ ] Use pre-signed URLs for transcript file upload to Amazon S3
 
 ### [ ] 6.2 Evaluation Display
 - [ ] Show depth-of-answer analysis

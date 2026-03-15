@@ -3,8 +3,8 @@
 
 ## Locked Tech Stack
 - [ ] Python + FastAPI
-- [ ] PostgreSQL
-- [ ] AWS S3 for resume and document storage
+- [ ] Amazon RDS for PostgreSQL
+- [ ] Amazon S3 for resume and document storage
 
 ---
 
@@ -19,12 +19,12 @@
 - [ ] Set up application entrypoint and app factory pattern
 
 ### [ ] 1.2 Database Setup
-- [ ] Install and configure PostgreSQL connection
+- [ ] Install and configure PostgreSQL connection (Amazon RDS endpoint)
 - [ ] Set up SQLAlchemy async ORM
 - [ ] Set up Alembic for database migrations
 - [ ] Create initial migration for baseline schema
 - [ ] Write database session dependency for injection into routes
-- [ ] Add PostgreSQL backup and restore scripts for operations
+- [ ] Configure Amazon RDS automated backups and define restore runbook
 
 ### [ ] 1.3 Project Structure Wiring
 - [ ] Wire up APIRouter across all `v1/` sub-modules
@@ -108,6 +108,7 @@
 - [ ] `POST /jobs/{id}/candidates` – Upload candidate resume (PDF or text)
 - [ ] Trigger async document processing pipeline on upload
 - [ ] Upload raw files to AWS S3 and persist object key metadata in PostgreSQL
+- [ ] Generate S3 pre-signed upload URLs and validate object metadata after upload
 - [ ] `GET /jobs/{id}/candidates` – List candidates for a job
 - [ ] `GET /candidates/{id}` – Get full candidate profile with evaluation data
 - [ ] `PUT /candidates/{id}` – Update candidate metadata
@@ -245,6 +246,7 @@
 - [ ] Configure environment secrets management
 - [ ] Set up worker process for background task queue
 - [ ] Configure S3 bucket policies, IAM roles, and signed URL access for uploads/downloads
+- [ ] Configure Amazon RDS parameter groups, security groups, and subnet group
 
 ### [ ] 11.3 Infrastructure Monitoring
 - [ ] Set up application logging pipeline
@@ -255,7 +257,7 @@
 ### [ ] 11.4 Scalability
 - [ ] Configure worker concurrency to handle 100+ concurrent users
 - [ ] Profile and optimize slow database queries
-- [ ] Add database connection pooling
+- [ ] Add database connection pooling tuned for Amazon RDS
 
 ---
 
