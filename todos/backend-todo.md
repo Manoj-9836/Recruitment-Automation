@@ -2,35 +2,35 @@
 ## Project: AI Hiring Assistant
 
 ## Locked Tech Stack
-- [ ] Python + FastAPI
-- [ ] Amazon RDS for PostgreSQL
+- [x] Python + FastAPI
+- [x] Supabase PostgreSQL
 - [ ] Amazon S3 for resume and document storage
 
 ---
 
 ## Phase 1 – Setup & Foundation
 
-### [ ] 1.1 Project Initialization
-- [ ] Initialize FastAPI project under `backend/`
-- [ ] Set up virtual environment and `requirements.txt` / `pyproject.toml`
-- [ ] Configure environment variable management using `pydantic-settings`
-- [ ] Set up structured logging using `structlog`
-- [ ] Configure CORS middleware for frontend origin
-- [ ] Set up application entrypoint and app factory pattern
+### [x] 1.1 Project Initialization
+- [x] Initialize FastAPI project under `backend/`
+- [x] Set up virtual environment and `requirements.txt` / `pyproject.toml`
+- [x] Configure environment variable management using `pydantic-settings`
+- [x] Set up structured logging using `structlog`
+- [x] Configure CORS middleware for frontend origin
+- [x] Set up application entrypoint and app factory pattern
 
 ### [ ] 1.2 Database Setup
-- [ ] Install and configure PostgreSQL connection (Amazon RDS endpoint)
-- [ ] Set up SQLAlchemy async ORM
-- [ ] Set up Alembic for database migrations
-- [ ] Create initial migration for baseline schema
-- [ ] Write database session dependency for injection into routes
-- [ ] Configure Amazon RDS automated backups and define restore runbook
+- [x] Install and configure PostgreSQL connection (Supabase endpoint)
+- [x] Set up SQLAlchemy async ORM
+- [x] Set up Alembic for database migrations
+- [x] Create initial migration for baseline schema
+- [x] Write database session dependency for injection into routes
+- [ ] Configure Supabase automated backups and define restore runbook
 
-### [ ] 1.3 Project Structure Wiring
-- [ ] Wire up APIRouter across all `v1/` sub-modules
-- [ ] Set up unified error handling and standardized JSON error responses
-- [ ] Set up health check endpoint (`GET /health`)
-- [ ] Set up request validation using Pydantic v2 schemas
+### [x] 1.3 Project Structure Wiring
+- [x] Wire up APIRouter across all `v1/` sub-modules
+- [x] Set up unified error handling and standardized JSON error responses
+- [x] Set up health check endpoint (`GET /health`)
+- [x] Set up request validation using Pydantic v2 schemas
 
 ---
 

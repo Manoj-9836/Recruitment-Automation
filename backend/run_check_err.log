@@ -1,0 +1,6 @@
+INFO:     Will watch for changes in these directories: ['F:\\Gitprojects\\Recruitment-Automation\\backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [19792] using WatchFiles
+INFO:     Started server process [9576]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.

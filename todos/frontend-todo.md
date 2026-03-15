@@ -7,7 +7,7 @@
 - [ ] Tailwind CSS
 - [ ] React Router
 - [ ] Axios for API calls
-- [ ] Amazon S3 pre-signed URL upload/download flow
+- [ ] Object storage pre-signed URL upload/download flow (e.g., Cloudflare R2, Google Cloud Storage, Azure Blob Storage, or MinIO)
 
 ---
 
@@ -115,7 +115,7 @@
 
 ### [ ] 5.1 Candidate Upload
 - [ ] Upload resume in PDF or text format
-- [ ] Upload files to Amazon S3 using backend-provided pre-signed URLs
+- [ ] Upload files to object storage using backend-provided pre-signed URLs
 - [ ] Show upload progress and success/error states
 - [ ] Trigger automatic parsing flow on upload
 
@@ -146,7 +146,7 @@
 ### [ ] 6.1 Transcript Upload
 - [ ] Upload manual transcript (text or document file)
 - [ ] Upload transcript file exported from Microsoft Teams
-- [ ] Use pre-signed URLs for transcript file upload to Amazon S3
+- [ ] Use pre-signed URLs for transcript file upload to object storage
 
 ### [ ] 6.2 Evaluation Display
 - [ ] Show depth-of-answer analysis
