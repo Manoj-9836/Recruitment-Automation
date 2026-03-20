@@ -17,10 +17,30 @@ class Settings(BaseSettings):
     api_v1_prefix: str = "/api/v1"
 
     cors_origins: str = "http://localhost:5173"
+    cors_origin_regex: str = r"https?://(localhost|127\.0\.0\.1)(:\d+)?"
 
-    database_url: str = (
-        "postgresql+asyncpg://postgres:[YOUR-PASSWORD]@db.hwoiecdegltbrjmsullk.supabase.co:5432/postgres?ssl=require"
-    )
+    database_url: str = "sqlite+aiosqlite:///./recruitment.db"
+    frontend_base_url: str = "http://localhost:5173"
+    backend_base_url: str = "http://localhost:8000"
+    local_upload_dir: str = "uploads"
+
+    supabase_url: str = ""
+    supabase_service_role_key: str = ""
+    supabase_jd_bucket: str = "job-descriptions"
+    supabase_application_bucket: str = "candidate-applications"
+
+    # SMTP Configuration
+    smtp_server: str = "smtp.gmail.com"
+    smtp_port: int = 587
+    smtp_sender_email: str = ""
+    smtp_sender_password: str = ""
+    candidate_portal_url: str = "http://localhost:5173"
+
+    # JWT Configuration
+    jwt_secret_key: str = "your-secret-key-change-in-production-12345"
+    jwt_algorithm: str = "HS256"
+    jwt_access_token_expire_hours: int = 24
+    jwt_refresh_token_expire_days: int = 7
 
     log_level: str = "INFO"
 
@@ -33,3 +53,4 @@ class Settings(BaseSettings):
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
+

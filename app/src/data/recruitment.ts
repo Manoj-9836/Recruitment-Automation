@@ -1,8 +1,8 @@
-import type { JobPosting, ResumeCandidate } from "@/types/recruitment";
+import type { JobPosting, ResumeCandidate, ResumeProject } from "@/types/recruitment";
 
 export const ATS_THRESHOLD = 85;
 
-export const INITIAL_RESUMES: ResumeCandidate[] = [
+const BASE_RESUMES: ResumeCandidate[] = [
   {
     id: "cand-1",
     candidateName: "Alice Chen",
@@ -160,23 +160,112 @@ export const INITIAL_RESUMES: ResumeCandidate[] = [
     suitability: 94,
     status: "pending",
     email: "sara.khan@example.com"
+  },
+  {
+    id: "cand-13",
+    candidateName: "Neeraj Kulkarni",
+    jobRole: "AI QA Engineer",
+    atsScore: 91,
+    extractedSkills: ["Playwright", "TypeScript", "API Testing", "Prompt Evaluation"],
+    certifications: ["ISTQB Foundation", "Azure AI Fundamentals"],
+    achievements: ["Automated 280+ end-to-end tests", "Reduced production regressions by 37%"],
+    experience: "3.2 yrs at TestPilot AI",
+    suitability: 91,
+    status: "selected",
+    email: "neeraj.kulkarni@example.com",
+    zoomLink: "https://zoom.us/j/665112349?pwd=RecruitAuto"
   }
 ];
 
-export const INITIAL_JOB_POSTINGS: JobPosting[] = [
-  {
-    id: "job-1",
-    title: "Frontend Engineer",
-    requiredAts: 85,
-    jdFileName: "frontend-engineer-jd.pdf"
-  },
-  {
-    id: "job-2",
-    title: "Backend Engineer",
-    requiredAts: 88,
-    jdFileName: "backend-engineer-jd.pdf"
-  }
-];
+const ROLE_PROJECTS: Record<string, ResumeProject[]> = {
+  "Frontend Engineer": [
+    {
+      name: "Design System Platform",
+      techStack: ["React", "TypeScript", "Storybook"],
+      impact: "Built reusable UI primitives adopted by 4 teams and reduced UI defects by 28%.",
+      link: "https://github.com/example/design-system",
+    },
+    {
+      name: "Candidate Portal Revamp",
+      techStack: ["Next.js", "Tailwind", "Framer Motion"],
+      impact: "Improved onboarding completion rate by 19% through UX and performance optimizations.",
+    },
+  ],
+  "Backend Engineer": [
+    {
+      name: "Async Resume Processing Pipeline",
+      techStack: ["FastAPI", "PostgreSQL", "Redis", "Celery"],
+      impact: "Reduced document-processing turnaround from 12 min to under 3 min.",
+    },
+    {
+      name: "Interview Scheduling API",
+      techStack: ["Node.js", "PostgreSQL", "Docker"],
+      impact: "Delivered calendar + meeting APIs with 99.9% availability in production.",
+    },
+  ],
+  "Data Engineer": [
+    {
+      name: "Hiring Analytics Warehouse",
+      techStack: ["Airflow", "dbt", "BigQuery"],
+      impact: "Automated weekly talent reports and cut manual reporting effort by 70%.",
+    },
+    {
+      name: "Real-time ATS Scoring Stream",
+      techStack: ["Python", "Kafka", "PostgreSQL"],
+      impact: "Enabled near real-time candidate ranking updates for recruiter dashboards.",
+    },
+  ],
+  "Product Manager": [
+    {
+      name: "Enterprise Hiring Workflow Launch",
+      techStack: ["Product Strategy", "Analytics", "A/B Testing"],
+      impact: "Launched workflow automation features improving recruiter throughput by 24%.",
+    },
+    {
+      name: "Interview Experience Optimization",
+      techStack: ["User Research", "Roadmapping", "SQL"],
+      impact: "Increased candidate interview completion from 68% to 84%.",
+    },
+  ],
+  "AI QA Engineer": [
+    {
+      name: "AI Assessment Regression Suite",
+      techStack: ["Playwright", "TypeScript", "GitHub Actions"],
+      impact: "Automated interview-journey smoke tests and cut release validation time by 54%.",
+    },
+    {
+      name: "Prompt Quality Evaluation Harness",
+      techStack: ["Python", "Pytest", "OpenAI Evals"],
+      impact: "Introduced quality gates for AI scoring prompts and improved consistency across rounds.",
+    },
+  ],
+};
+
+export const INITIAL_RESUMES: ResumeCandidate[] = BASE_RESUMES.map((candidate, index) => ({
+  ...candidate,
+  phone: candidate.phone ?? `+91 98${String(10000000 + index * 379).slice(0, 8)}`,
+  location:
+    candidate.location ??
+    (candidate.jobRole === "Backend Engineer"
+      ? "Hyderabad, India"
+      : candidate.jobRole === "Data Engineer"
+        ? "Pune, India"
+        : candidate.jobRole === "Product Manager"
+          ? "Mumbai, India"
+          : "Bengaluru, India"),
+  education:
+    candidate.education ??
+    (candidate.jobRole === "Product Manager"
+      ? ["MBA, Product Management", "B.Com"]
+      : ["B.Tech in Computer Science", "Certification in Cloud/AI Foundations"]),
+  languages: candidate.languages ?? ["English", "Hindi"],
+  professionalSummary:
+    candidate.professionalSummary ??
+    `${candidate.experience}. ${candidate.candidateName} specializes in ${candidate.jobRole.toLowerCase()} workflows and cross-functional delivery in fast-paced product teams.`,
+  projects: candidate.projects ?? ROLE_PROJECTS[candidate.jobRole] ?? [],
+}));
+
+export const INITIAL_JOB_POSTINGS: JobPosting[] = [];
 
 export const INTERVIEW_ROUNDS = [
   "Aptitude Round",
